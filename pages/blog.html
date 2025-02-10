@@ -301,36 +301,7 @@
 
 
 
-<!-- JavaScript -->
-<script>
-    // Function to handle comments submission
-    function submitComment(postId) {
-        const name = document.getElementById(`comment-name-${postId}`).value;
-        const text = document.getElementById(`comment-text-${postId}`).value;
-        if (name && text) {
-            const commentList = document.getElementById(`comments-list-${postId}`);
-            const commentItem = document.createElement('li');
-            commentItem.textContent = `${name}: ${text}`;
-            commentList.appendChild(commentItem);
-            document.getElementById(`comment-name-${postId}`).value = '';
-            document.getElementById(`comment-text-${postId}`).value = '';
-        } else {
-            alert('Please fill in both name and comment!');
-        }
-    }
 
-    // Function to dynamically load recent blog posts in the sidebar
-    window.onload = () => {
-        const recentPosts = document.querySelectorAll('.blog-post');
-        const recentPostsList = document.getElementById('recent-posts');
-        recentPosts.forEach(post => {
-            const postTitle = post.querySelector('h3').textContent;
-            const li = document.createElement('li');
-            li.textContent = postTitle;
-            recentPostsList.appendChild(li);
-        });
-    };
-</script>
 
 
     <!-- Footer Section -->
@@ -389,7 +360,36 @@
             <button class="send-message">Send</button>
         </div>
     </div>
+<!-- JavaScript -->
+<script>
+    // Function to handle comments submission
+    function submitComment(postId) {
+        const name = document.getElementById(`comment-name-${postId}`).value;
+        const text = document.getElementById(`comment-text-${postId}`).value;
+        if (name && text) {
+            const commentList = document.getElementById(`comments-list-${postId}`);
+            const commentItem = document.createElement('li');
+            commentItem.textContent = `${name}: ${text}`;
+            commentList.appendChild(commentItem);
+            document.getElementById(`comment-name-${postId}`).value = '';
+            document.getElementById(`comment-text-${postId}`).value = '';
+        } else {
+            alert('Please fill in both name and comment!');
+        }
+    }
 
+    // Function to dynamically load recent blog posts in the sidebar
+    window.onload = () => {
+        const recentPosts = document.querySelectorAll('.blog-post');
+        const recentPostsList = document.getElementById('recent-posts');
+        recentPosts.forEach(post => {
+            const postTitle = post.querySelector('h3').textContent;
+            const li = document.createElement('li');
+            li.textContent = postTitle;
+            recentPostsList.appendChild(li);
+        });
+    };
+</script>
     <script src="/main.js"></script>
 </body>
 </html>
