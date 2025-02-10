@@ -10,6 +10,260 @@
     <link rel="stylesheet" href="/main.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
+<style>
+    /* General Page Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Blog Container */
+.blog-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+}
+
+/* Main Blog Post */
+.blog-post {
+    width: 70%; /* Main content will take up most space */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post .post-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+.blog-post .post-date {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.blog-post h2 {
+    font-size: 1.6rem;
+    color: #333;
+    margin-top: 20px;
+}
+
+.blog-post p {
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.blog-post .post-image {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+/* Share Buttons */
+.share-buttons {
+    margin-top: 20px;
+}
+
+.share-buttons a {
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.share-buttons a:hover {
+    transform: scale(1.1);
+}
+
+.share-buttons .social-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Sidebar (Recent Posts and Categories) */
+.sidebar {
+    width: 25%; /* Sidebar takes less space */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    color: #007bff;
+}
+
+/* Comments Section */
+.comments-section {
+    margin-top: 30px;
+    background-color: #f1f1f1;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.comments-section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.comments-section textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    resize: vertical;
+}
+
+#comments-list {
+    margin-top: 10px;
+}
+
+.comment {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.comment p {
+    font-size: 0.9rem;
+}
+
+/* Post Comment Button */
+.send-message {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.send-message:hover {
+    background-color: #0056b3;
+}
+
+/* Footer Section */
+footer {
+    background-color: #222;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+footer .social-media {
+    margin: 20px 0;
+}
+
+footer .social-icon img {
+    width: 25px;
+    height: 25px;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+footer .social-icon img:hover {
+    transform: scale(1.1);
+}
+
+/* Responsiveness for Mobile */
+@media (max-width: 768px) {
+    /* Stack the blog content and sidebar vertically on smaller screens */
+    .blog-container {
+        flex-direction: column;
+    }
+
+    .blog-post {
+        width: 100%; /* Full width for blog post */
+        margin-bottom: 20px;
+    }
+
+    .sidebar {
+        width: 100%; /* Full width for sidebar on mobile */
+        margin-top: 20px;
+    }
+
+    /* Adjust font size for mobile */
+    .sidebar h3 {
+        font-size: 1.3rem;
+    }
+
+    .sidebar ul li a {
+        font-size: 1rem;
+    }
+
+    /* Adjust Post Title Font Size */
+    .blog-post .post-title {
+        font-size: 1.8rem;
+    }
+
+    /* Adjust Share Buttons */
+    .share-buttons .social-icon img {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+/* General Button Styling */
+button {
+    cursor: pointer;
+}
+
+input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+</style>
 <body>
     <!-- Navbar -->
     <header class="header">
@@ -41,6 +295,79 @@
         </div>
     </header>
 
+<!-- Blog Content Section -->
+<div class="blog-container">
+    <!-- Main Blog Post -->
+    <div class="blog-post">
+        <h1 class="post-title">Understanding Special Concerns in Healthcare</h1>
+        <p class="post-date">February 10, 2025 | HealthCare Center</p>
+        <div class="post-content">
+            <h2>Introduction</h2>
+            <p>In healthcare, there are special concerns that need to be addressed for different groups of people. These can range from managing chronic conditions to understanding the needs of the elderly. In this blog post, we will look at some of the key concerns in healthcare and how they can be addressed to improve patient outcomes.</p>
+
+            <h2>Chronic Conditions Management</h2>
+            <p>Chronic conditions, such as diabetes, heart disease, and asthma, require ongoing care and management. These conditions can affect a person’s quality of life and may lead to serious complications if not managed properly. Regular monitoring, proper medication, and lifestyle changes are essential for managing these conditions effectively.</p>
+            <img src="chronic-condition.jpg" alt="Chronic Conditions Management" class="post-image">
+            
+            <h2>Elderly Care</h2>
+            <p>The elderly population often faces multiple health challenges, including mobility issues, cognitive decline, and chronic conditions. Special care, including personalized healthcare plans, assisted living options, and social support, is crucial for ensuring that the elderly live a comfortable and healthy life.</p>
+            <img src="elderly-care.jpg" alt="Elderly Care" class="post-image">
+            
+            <h2>Mental Health Awareness</h2>
+            <p>Mental health is just as important as physical health, yet it is often overlooked. Issues such as anxiety, depression, and stress affect many people, and addressing these concerns through counseling, therapy, and medication can significantly improve quality of life.</p>
+            <img src="mental-health.jpg" alt="Mental Health Awareness" class="post-image">
+            
+            <h2>Access to Healthcare</h2>
+            <p>Access to quality healthcare is a major concern for many people, especially in underserved areas. This includes not only physical access to healthcare facilities but also affordability and availability of necessary treatments. Governments and healthcare providers must work to ensure equitable access for all individuals, regardless of their socioeconomic status.</p>
+            <img src="access-to-healthcare.jpg" alt="Access to Healthcare" class="post-image">
+            
+            <h2>Conclusion</h2>
+            <p>Addressing special concerns in healthcare is critical for improving the health and well-being of diverse populations. By focusing on chronic conditions, elderly care, mental health, and access to healthcare, we can ensure that everyone receives the care they need. Understanding and tackling these issues will help pave the way for a healthier future.</p>
+        </div>
+
+        <!-- Share Buttons -->
+        <div class="share-buttons">
+            <a href="https://facebook.com/share" target="_blank" class="social-icon">
+                <img src="facebook-icon.png" alt="Facebook">
+            </a>
+            <a href="https://twitter.com/share" target="_blank" class="social-icon">
+                <img src="twitter-icon.png" alt="Twitter">
+            </a>
+            <a href="https://linkedin.com/share" target="_blank" class="social-icon">
+                <img src="linkedin-icon.png" alt="LinkedIn">
+            </a>
+            <a href="https://instagram.com/share" target="_blank" class="social-icon">
+                <img src="instagram-icon.png" alt="Instagram">
+            </a>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+            <h3>Comments</h3>
+            <div id="comments-list">
+                <!-- Dynamic Comments -->
+            </div>
+            <textarea id="comment-text" placeholder="Leave a comment..." rows="3"></textarea>
+            <button id="post-comment" class="send-message">Post Comment</button>
+        </div>
+    </div>
+
+    <!-- Sidebar (Recent Posts and Categories) -->
+    <div class="sidebar">
+        <h3>Recent Posts</h3>
+        <ul>
+            <li><a href="/pages/blog/health-checkups-importance.html">The Importance of Regular Health Checkups</a></li>
+            <li><a href="/pages/blog/healthy-lifestyle-tips.html">Top 5 Tips for a Healthy Lifestyle</a></li>
+            <li><a href="/pages/blog/preventative-care-strategies.html">How Preventative Care Can Save Your Life</a></li>
+        </ul>
+        <h3>Categories</h3>
+        <ul>
+            <li><a href="/pages/blog/healthcare-tips.html">Healthcare Tips</a></li>
+            <li><a href="/pages/blog/fitness.html">Fitness & Exercise</a></li>
+            <li><a href="/pages/blog/nutrition.html">Nutrition</a></li>
+        </ul>
+    </div>
+</div>
 
 
 
@@ -100,7 +427,21 @@
             <button class="send-message">Send</button>
         </div>
     </div>
+<script>
+    $(document).ready(function() {
+    $('#post-comment').click(function() {
+        var commentText = $('#comment-text').val();
+        if (commentText) {
+            var newComment = `<div class="comment">
+                                <p><strong>User:</strong> ${commentText}</p>
+                              </div>`;
+            $('#comments-list').append(newComment);
+            $('#comment-text').val('');
+        }
+    });
+});
 
+</script>
     <script src="/main.js"></script>
 </body>
 </html>
