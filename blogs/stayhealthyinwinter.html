@@ -3,13 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="HealthCare Center provides comprehensive healthcare services for your well-being. Schedule an appointment today.">
-    <meta name="keywords" content="healthcare, doctor, general checkup, specialist consultation, emergency care">
+    <meta name="description" content="Stay Healthy in Winter: Essential tips to keep you warm, safe, and fit throughout the cold months.">
+    <meta name="keywords" content="winter health, stay healthy, cold weather, winter tips, fitness">
     <meta name="author" content="HealthCare Center">
-    <title>HealthCare Center</title>
+    <title>Stay Healthy in Winter | HealthCare Center Blog</title>
     <link rel="stylesheet" href="/main.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+<style>
+    /* Animation for blog content */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.blog-post {
+    animation: fadeIn 2s ease-in-out;
+}
+
+h1.post-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.post-content {
+    margin-bottom: 2rem;
+}
+
+.tip {
+    margin-bottom: 2rem;
+}
+
+.tip img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.share-buttons a {
+    margin-right: 10px;
+}
+
+.comments-section {
+    margin-top: 2rem;
+}
+
+.comments-section textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    resize: vertical;
+}
+
+#comments-list {
+    margin-top: 1rem;
+}
+
+.sidebar {
+    margin-top: 2rem;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+
+    .blog-container {
+        width: 100%;
+    }
+
+    .blog-post {
+        padding: 10px;
+    }
+}
+
+</style>
 <body>
     <!-- Navbar -->
     <header class="header">
@@ -23,8 +103,7 @@
                 <li><a href="/pages/about.html">About</a></li>
                 <li><a href="/pages/services.html">Services</a></li>
                 <li><a href="/pages/appointment.html">Appointment</a></li>
-                <li><a href="/pages/blog.html">Blogs</a></li> <!-- Added the Blogs link -->
-
+                <li><a href="/pages/blog.html">Blogs</a></li>
                 <li><a href="html/contact.html">Contact</a></li>
                 <li><a href="products.html">Shop</a></li>
                 <li><a href="html/login.html">Login/Signup</a></li>
@@ -34,72 +113,144 @@
                 <button id="search-btn">Enter</button>
             </div>
         </nav>
-        <div class="hamburger" id="hamburger">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
     </header>
 
+    <!-- Blog Content Section -->
+    <div class="blog-container">
+        <div class="blog-post">
+            <h1 class="post-title">Stay Healthy in Winter: 6 Essential Tips</h1>
+            <p class="post-date">February 10, 2025 | HealthCare Center</p>
+            <div class="post-content">
+                <p>Winter can be a challenging time to stay healthy, but with the right approach, you can maintain a healthy lifestyle through the cold months. Here are 6 essential tips to stay healthy during winter:</p>
 
+                <div class="tip">
+                    <img src="winter-activity.jpg" alt="Winter Activities" class="tip-image">
+                    <h3>1. Get Active and Exercise Regularly</h3>
+                    <p>Just because it's cold outside doesn't mean you should skip your workouts. Indoor exercises like yoga, stretching, or even home cardio can help you stay active. If you're into outdoor activities, try skiing, snowboarding, or even brisk walking in the snow to keep your body moving.</p>
+                </div>
 
+                <div class="tip">
+                    <img src="healthy-food-winter.jpg" alt="Healthy Winter Foods" class="tip-image">
+                    <h3>2. Eat Nutritious, Seasonal Foods</h3>
+                    <p>Winter is the season for hearty, nutritious meals. Enjoy soups, stews, and roasted vegetables, as they provide warmth and nourishment. Include lots of vitamin C-rich foods like citrus fruits, peppers, and leafy greens to boost your immune system.</p>
+                </div>
 
-    <!-- Footer Section -->
-<footer id="contact">
-    <div class="container">
-        <!-- Profile Logo and Social Media Links -->
-        <div class="footer-logo">
-            <img src="healthlogo.jpg" alt="HealthCare Center Logo" class="profile-logo">
+                <div class="tip">
+                    <img src="warm-clothing.jpg" alt="Winter Clothing" class="tip-image">
+                    <h3>3. Bundle Up and Stay Warm</h3>
+                    <p>It's essential to layer up during the winter to protect yourself from the cold. Wear thermal clothing, scarves, gloves, and hats to keep warm and prevent frostbite. Proper winter gear will also help you stay comfortable while engaging in outdoor activities.</p>
+                </div>
+
+                <div class="tip">
+                    <img src="hydration-winter.jpg" alt="Winter Hydration" class="tip-image">
+                    <h3>4. Stay Hydrated</h3>
+                    <p>Even in the cold weather, it's crucial to drink enough water. Hydration supports your body’s immune system and keeps your skin from getting dry and cracked. Drink warm herbal teas or water with lemon to stay hydrated in a soothing way.</p>
+                </div>
+
+                <div class="tip">
+                    <img src="winter-skin-care.jpg" alt="Winter Skin Care" class="tip-image">
+                    <h3>5. Protect Your Skin</h3>
+                    <p>The winter air can be harsh on your skin, causing dryness and irritation. Make sure to moisturize your skin regularly with a rich lotion or oil. Don't forget to use lip balm to protect your lips from becoming chapped.</p>
+                </div>
+
+                <div class="tip">
+                    <img src="flu-vaccine.jpg" alt="Flu Vaccine" class="tip-image">
+                    <h3>6. Get Your Flu Vaccine</h3>
+                    <p>Winter is flu season, so getting your flu shot is one of the best ways to stay healthy. The vaccine helps protect you from the flu virus, preventing unnecessary illnesses and complications during the colder months.</p>
+                </div>
+
+                <p>By following these simple but effective tips, you can stay healthy and enjoy the winter season without worry!</p>
+            </div>
+            <div class="share-buttons">
+                <a href="https://facebook.com/share" target="_blank" class="social-icon">
+                    <img src="facebook-icon.png" alt="Facebook">
+                </a>
+                <a href="https://twitter.com/share" target="_blank" class="social-icon">
+                    <img src="twitter-icon.png" alt="Twitter">
+                </a>
+                <a href="https://linkedin.com/share" target="_blank" class="social-icon">
+                    <img src="linkedin-icon.png" alt="LinkedIn">
+                </a>
+                <a href="https://instagram.com/share" target="_blank" class="social-icon">
+                    <img src="instagram-icon.png" alt="Instagram">
+                </a>
+            </div>
+
+            <!-- Comments Section -->
+            <div class="comments-section">
+                <h3>Comments</h3>
+                <div id="comments-list">
+                    <!-- Comments will be dynamically added here -->
+                </div>
+                <textarea id="comment-text" placeholder="Leave a comment..." rows="3"></textarea>
+                <button id="post-comment" class="send-message">Post Comment</button>
+            </div>
         </div>
-        
-        <div class="footer-links">
+
+        <!-- Recent and Categorized Posts -->
+        <div class="sidebar">
+            <h3>Recent Posts</h3>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#appointment">Make an Appointment</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#faq">FAQ</a></li>
+                <li><a href="/pages/blog/health-checkups-importance.html">The Importance of Regular Health Checkups</a></li>
+                <li><a href="/pages/blog/healthy-lifestyle-tips.html">Top 5 Tips for a Healthy Lifestyle</a></li>
+                <li><a href="/pages/blog/preventative-care-strategies.html">How Preventative Care Can Save Your Life</a></li>
+            </ul>
+            <h3>Categories</h3>
+            <ul>
+                <li><a href="/pages/blog/healthcare-tips.html">Healthcare Tips</a></li>
+                <li><a href="/pages/blog/fitness.html">Fitness & Exercise</a></li>
+                <li><a href="/pages/blog/nutrition.html">Nutrition</a></li>
             </ul>
         </div>
-        
-        <!-- Social Media Links -->
-        <div class="social-media">
-            <a href="https://facebook.com/healthcarecenter" target="_blank" class="social-icon">
-                <img src="facebook-icon.png" alt="Facebook">
-            </a>
-            <a href="https://twitter.com/healthcarecenter" target="_blank" class="social-icon">
-                <img src="twitter-icon.png" alt="Twitter">
-            </a>
-            <a href="https://linkedin.com/company/healthcarecenter" target="_blank" class="social-icon">
-                <img src="linkedin-icon.png" alt="LinkedIn">
-            </a>
-            <a href="https://instagram.com/healthcarecenter" target="_blank" class="social-icon">
-                <img src="instagram-icon.png" alt="Instagram">
-            </a>
-        </div>
-
-        <p>&copy; 2025 HealthCare Center. All rights reserved.</p>
     </div>
-</footer>
 
-
-    <!-- Live Chat Button -->
-    <div class="live-chat" id="live-chat">
-        <button class="live-chat-btn">
-            <i class="fas fa-comments"></i> Chat with us
-        </button>
-        <div id="chat-box" class="chat-box" style="display: none;">
-            <div class="chat-header">
-                <span>Live Chat</span>
-                <button id="close-chat" class="close-chat">X</button>
+    <!-- Footer Section -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-logo">
+                <img src="healthlogo.jpg" alt="HealthCare Center Logo" class="profile-logo">
             </div>
-            <div class="chat-body">
-                <p>How can we help you today?</p>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#appointment">Make an Appointment</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
             </div>
-            <textarea placeholder="Type your message here..." rows="4"></textarea>
-            <button class="send-message">Send</button>
+            <div class="social-media">
+                <a href="https://facebook.com/healthcarecenter" target="_blank" class="social-icon">
+                    <img src="facebook-icon.png" alt="Facebook">
+                </a>
+                <a href="https://twitter.com/healthcarecenter" target="_blank" class="social-icon">
+                    <img src="twitter-icon.png" alt="Twitter">
+                </a>
+                <a href="https://linkedin.com/company/healthcarecenter" target="_blank" class="social-icon">
+                    <img src="linkedin-icon.png" alt="LinkedIn">
+                </a>
+                <a href="https://instagram.com/healthcarecenter" target="_blank" class="social-icon">
+                    <img src="instagram-icon.png" alt="Instagram">
+                </a>
+            </div>
+            <p>&copy; 2025 HealthCare Center. All rights reserved.</p>
         </div>
-    </div>
+    </footer>
+    <script>
+        $(document).ready(function() {
+    $('#post-comment').click(function() {
+        var commentText = $('#comment-text').val();
+        if (commentText) {
+            var newComment = `<div class="comment">
+                                <p><strong>User:</strong> ${commentText}</p>
+                              </div>`;
+            $('#comments-list').append(newComment);
+            $('#comment-text').val('');
+        }
+    });
+});
+
+    </script>
 
     <script src="/main.js"></script>
 </body>
