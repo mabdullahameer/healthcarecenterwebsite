@@ -1,0 +1,40 @@
+/* Basic Layout */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .sidebar {
+    width: 25%;
+    padding: 10px;
+    border-right: 2px solid #ccc;
+  }
+  
+  .blog-container {
+    width: 70%;
+    padding: 20px;
+  }
+  
+  .search-box input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .related-topics ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .related-topics ul li {
+    margin: 5px 0;
+  }
+  
+  #pagination button {
+    margin-top: 20px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
