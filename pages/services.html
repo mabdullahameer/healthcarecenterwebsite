@@ -1,5 +1,18 @@
-  <!-- Navbar -->
-  <header class="header">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HealthCare Center provides comprehensive healthcare services for your well-being. Schedule an appointment today.">
+    <meta name="keywords" content="healthcare, doctor, general checkup, specialist consultation, emergency care">
+    <meta name="author" content="HealthCare Center">
+    <title>HealthCare Center</title>
+    <link rel="stylesheet" href="/main.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<!-- Navbar -->
+<header class="header">
     <div class="logo">
         <img src="/healthlogo.jpg" alt="HealthCare Logo">
         <span>HealthCare Center</span>
@@ -8,7 +21,7 @@
         <ul class="nav-links">
             <li><a href="/index.html">Home</a></li>
             <li><a href="/pages/about.html">About</a></li>
-            <li><a href="html/services.html">Services</a></li>
+            <li><a href="/pages/s">Services</a></li>
             <li><a href="/pages/appointment.html">Appointment</a></li>
             <li><a href="/pages/blog.html">Blogs</a></li> <!-- Added the Blogs link -->
 
@@ -27,3 +40,255 @@
         <div class="bar"></div>
     </div>
 </header>
+<!-- Styles -->
+<style>
+    /* Basic Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f7fc;
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 36px;
+        margin: 50px 0;
+        color: #333;
+    }
+
+    .services-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .service {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 30%;
+        overflow: hidden;
+        transition: transform 0.3s ease-in-out;
+        opacity: 0;
+        animation: fadeIn 1s forwards;
+    }
+
+    .service:hover {
+        transform: scale(1.05);
+    }
+
+    .service-img img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .service-content {
+        padding: 20px;
+    }
+
+    .service-content h2 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    .service-content p {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .services-wrapper {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .service {
+            width: 80%;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+    }
+</style>
+
+<body>
+<!-- Services Page Body Content -->
+<main class="services-main">
+    <div class="container">
+        <h1>Our Professional Services</h1>
+
+        <div class="services-wrapper">
+            <!-- Service 1 -->
+            <div class="service animated" id="service1">
+                <div class="service-img">
+                    <img src="your-service-image1.jpg" alt="Service 1 Image">
+                </div>
+                <div class="service-content">
+                    <h2>Consultation</h2>
+                    <p>Get expert health consultation with our professional team. Discuss your health concerns and get tailored advice.</p>
+                    <button class="btn">Learn More</button>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service animated" id="service2">
+                <div class="service-img">
+                    <img src="/healthlogo.jpg" alt="Service 2 Image">
+                </div>
+                <div class="service-content">
+                    <h2>Emergency Care</h2>
+                    <p>Immediate treatment for emergencies. We provide timely medical intervention with full professionalism and care.</p>
+                    <button class="btn">Learn More</button>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service animated" id="service3">
+                <div class="service-img">
+                    <img src="your-service-image3.jpg" alt="Service 3 Image">
+                </div>
+                <div class="service-content">
+                    <h2>Physiotherapy</h2>
+                    <p>Recover faster with our expert physiotherapists. Personalized plans to restore movement and prevent further injury.</p>
+                    <button class="btn">Learn More</button>
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service animated" id="service4">
+                <div class="service-img">
+                    <img src="your-service-image4.jpg" alt="Service 4 Image">
+                </div>
+                <div class="service-content">
+                    <h2>Dentistry</h2>
+                    <p>Top-notch dental care, from routine checkups to cosmetic dentistry. Your smile is our priority!</p>
+                    <button class="btn">Learn More</button>
+                </div>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service animated" id="service5">
+                <div class="service-img">
+                    <img src="your-service-image5.jpg" alt="Service 5 Image">
+                </div>
+                <div class="service-content">
+                    <h2>Wellness Programs</h2>
+                    <p>Join our wellness programs for a holistic approach to health. Includes fitness, diet, and mental wellness plans.</p>
+                    <button class="btn">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+
+<!-- JavaScript for animations -->
+<script>
+    // Wait until all images are loaded, then trigger fade-in animation
+    window.addEventListener('load', () => {
+        const services = document.querySelectorAll('.service');
+        services.forEach((service, index) => {
+            setTimeout(() => {
+                service.style.opacity = 1; // Fade in each service one by one with delay
+            }, index * 300); // Delay to stagger the animation
+        });
+    });
+</script>
+  <!-- Footer Section -->
+  <footer id="contact">
+    <div class="container">
+        <!-- Profile Logo and Social Media Links -->
+        <div class="footer-logo">
+            <img src="/healthlogo.jpg" alt="HealthCare Center Logo" class="profile-logo">
+        </div>
+        
+        <div class="footer-links">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#appointment">Make an Appointment</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+        
+        <!-- Social Media Links -->
+        <div class="social-media">
+            <a href="https://facebook.com/healthcarecenter" target="_blank" class="social-icon">
+                <img src="facebook-icon.png" alt="Facebook">
+            </a>
+            <a href="https://twitter.com/healthcarecenter" target="_blank" class="social-icon">
+                <img src="twitter-icon.png" alt="Twitter">
+            </a>
+            <a href="https://linkedin.com/company/healthcarecenter" target="_blank" class="social-icon">
+                <img src="linkedin-icon.png" alt="LinkedIn">
+            </a>
+            <a href="https://instagram.com/healthcarecenter" target="_blank" class="social-icon">
+                <img src="instagram-icon.png" alt="Instagram">
+            </a>
+        </div>
+
+        <p>&copy; 2025 HealthCare Center. All rights reserved.</p>
+    </div>
+</footer>
+
+
+    <!-- Live Chat Button -->
+    <div class="live-chat" id="live-chat">
+        <button class="live-chat-btn">
+            <i class="fas fa-comments"></i> Chat with us
+        </button>
+        <div id="chat-box" class="chat-box" style="display: none;">
+            <div class="chat-header">
+                <span>Live Chat</span>
+                <button id="close-chat" class="close-chat">X</button>
+            </div>
+            <div class="chat-body">
+                <p>How can we help you today?</p>
+            </div>
+            <textarea placeholder="Type your message here..." rows="4"></textarea>
+            <button class="send-message">Send</button>
+        </div>
+    </div>
+    <script src="/main.js"></script>
+</body>
+</html>
