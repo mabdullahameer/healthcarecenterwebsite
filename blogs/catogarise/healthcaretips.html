@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Health tips and advice to improve your well-being and quality of life.">
+    <meta name="keywords" content="healthcare, health tips, wellness, medical advice">
+    <meta name="author" content="HealthCare Center">
+    <title>Healthcare Tips - HealthCare Center</title>
+    <link rel="stylesheet" href="../main.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<style>/* General Reset and Base Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        line-height: 1.6;
+    }
+    
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding-top: 2rem;
+    }
+    
+    /* Navbar Styles */
+    .navbar ul {
+        display: flex;
+        justify-content: space-around;
+        background-color: #333;
+        padding: 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .navbar ul li {
+        padding: 0.5rem;
+    }
+    
+    .navbar ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    
+    .navbar ul li a:hover {
+        color: #ff6600;
+    }
+    
+    /* Category Boxes Styling */
+    .categories {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+    
+    .category-box {
+        background-color: #fff;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s forwards;
+    }
+    
+    .category-box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    }
+    
+    .category-box h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #333;
+        transition: color 0.3s ease;
+    }
+    
+    .category-box h2:hover {
+        color: #ff6600;
+    }
+    
+    .category-box p {
+        font-size: 1.2rem;
+        color: #666;
+    }
+    
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Post Previews Styling */
+    .post-preview {
+        margin-bottom: 2rem;
+        animation: slideIn 0.8s ease forwards;
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    
+    @keyframes slideIn {
+        0% {
+            opacity: 0;
+            transform: translateX(-30px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    .post-preview h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #333;
+        transition: color 0.3s ease;
+    }
+    
+    .post-preview h2:hover {
+        color: #ff6600;
+    }
+    
+    .read-more {
+        color: #007BFF;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.5rem;
+        border-radius: 4px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    .read-more:hover {
+        background-color: #007BFF;
+        color: #fff;
+    }
+    
+    /* Footer Styles */
+    footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 1.5rem;
+        margin-top: 3rem;
+    }
+    
+    footer p {
+        font-size: 1rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .navbar ul {
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        .categories {
+            grid-template-columns: 1fr 1fr;
+        }
+    
+        .category-box {
+            padding: 1.5rem;
+        }
+    
+        .post-preview {
+            margin-bottom: 1.5rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .categories {
+            grid-template-columns: 1fr;
+        }
+    
+        .category-box h2 {
+            font-size: 1.6rem;
+        }
+    
+        .category-box p {
+            font-size: 1rem;
+        }
+    
+        .post-preview h2 {
+            font-size: 1.6rem;
+        }
+    
+        footer p {
+            font-size: 0.9rem;
+        }
+    }
+    </style>
+<body>
+<!-- Navbar -->
+<header class="header">
+    <div class="logo">
+        <img src="/healthlogo.jpg" alt="HealthCare Logo">
+        <span>HealthCare Center</span>
+    </div>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/pages/about.html">About</a></li>
+            <li><a href="/pages/services.html">Services</a></li>
+            <li><a href="/pages/appointment.html">Appointment</a></li>
+            <li><a href="/pages/blog.html">Blogs</a></li> <!-- Added the Blogs link -->
+
+            <li><a href="html/contact.html">Contact</a></li>
+            <li><a href="products.html">Shop</a></li>
+            <li><a href="html/login.html">Login/Signup</a></li>
+        </ul>
+        <div class="search">
+            <input type="text" id="search-box" placeholder="Search">
+            <button id="search-btn">Enter</button>
+        </div>
+    </nav>
+    <div class="hamburger" id="hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+</header>
+  
+
+    <!-- Category Page Content -->
+    <div class="container">
+        <h1 class="category-title">Healthcare Tips</h1>
+        <div class="category-content">
+            <div class="post-preview">
+                <h2><a href="healthcaretips-article1.html">How to Prevent Common Health Issues</a></h2>
+                <p>Preventative healthcare measures you can take to avoid common diseases and improve long-term health.</p>
+                <a href="healthcaretips-article1.html" class="read-more">Read More</a>
+            </div>
+
+            <div class="post-preview">
+                <h2><a href="healthcaretips-article2.html">Managing Stress Effectively</a></h2>
+                <p>Practical tips on managing stress and anxiety in your everyday life to improve mental health.</p>
+                <a href="healthcaretips-article2.html" class="read-more">Read More</a>
+            </div>
+
+            <div class="post-preview">
+                <h2><a href="healthcaretips-article3.html">When to Visit a Doctor: Key Symptoms to Watch</a></h2>
+                <p>Knowing when to seek medical help can make a big difference in early diagnosis and recovery.</p>
+                <a href="healthcaretips-article3.html" class="read-more">Read More</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+<footer id="contact">
+    <div class="container">
+        <!-- Profile Logo and Social Media Links -->
+        <div class="footer-logo">
+            <img src="healthlogo.jpg" alt="HealthCare Center Logo" class="profile-logo">
+        </div>
+        
+        <div class="footer-links">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#appointment">Make an Appointment</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+        
+        <!-- Social Media Links -->
+        <div class="social-media">
+            <a href="https://facebook.com/healthcarecenter" target="_blank" class="social-icon">
+                <img src="facebook-icon.png" alt="Facebook">
+            </a>
+            <a href="https://twitter.com/healthcarecenter" target="_blank" class="social-icon">
+                <img src="twitter-icon.png" alt="Twitter">
+            </a>
+            <a href="https://linkedin.com/company/healthcarecenter" target="_blank" class="social-icon">
+                <img src="linkedin-icon.png" alt="LinkedIn">
+            </a>
+            <a href="https://instagram.com/healthcarecenter" target="_blank" class="social-icon">
+                <img src="instagram-icon.png" alt="Instagram">
+            </a>
+        </div>
+
+        <p>&copy; 2025 HealthCare Center. All rights reserved.</p>
+    </div>
+</footer>
+
+
+    <!-- Live Chat Button -->
+    <div class="live-chat" id="live-chat">
+        <button class="live-chat-btn">
+            <i class="fas fa-comments"></i> Chat with us
+        </button>
+        <div id="chat-box" class="chat-box" style="display: none;">
+            <div class="chat-header">
+                <span>Live Chat</span>
+                <button id="close-chat" class="close-chat">X</button>
+            </div>
+            <div class="chat-body">
+                <p>How can we help you today?</p>
+            </div>
+            <textarea placeholder="Type your message here..." rows="4"></textarea>
+            <button class="send-message">Send</button>
+        </div>
+    </div>
+
+</body>
+</html>
