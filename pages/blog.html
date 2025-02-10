@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HealthCare Center provides comprehensive healthcare services for your well-being. Schedule an appointment today.">
+    <meta name="keywords" content="healthcare, doctor, general checkup, specialist consultation, emergency care">
+    <meta name="author" content="HealthCare Center">
+    <title>HealthCare Center</title>
+    <link rel="stylesheet" href="/main.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    /* Basic Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f7fc;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 20px;
+    }
+
+    .sidebar {
+        width: 250px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-right: 20px;
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar h3 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .sidebar ul li {
+        margin: 10px 0;
+    }
+
+    .sidebar ul li a {
+        text-decoration: none;
+        color: #007bff;
+        font-size: 18px;
+    }
+
+    .sidebar ul li a:hover {
+        color: #0056b3;
+    }
+
+    .blog-posts {
+        flex: 1;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .blog-post {
+        margin-bottom: 40px;
+        transition: transform 0.3s ease;
+    }
+
+    .blog-post:hover {
+        transform: scale(1.02);
+    }
+
+    .post-header {
+        margin-bottom: 10px;
+    }
+
+    .post-header h3 {
+        font-size: 28px;
+        color: #333;
+    }
+
+    .post-header .post-date {
+        color: #777;
+        font-size: 14px;
+    }
+
+    .post-image img {
+        width: 100%;
+        max-width: 800px;
+        border-radius: 10px;
+        margin-top: 15px;
+    }
+
+    .post-content {
+        margin-top: 15px;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .post-content a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .post-video iframe {
+        width: 100%;
+        max-width: 800px;
+        margin-top: 15px;
+        border-radius: 10px;
+    }
+
+    .comments-section {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 2px solid #f4f7fc;
+    }
+
+    .comment-box {
+        margin-bottom: 20px;
+    }
+
+    .comment-box input, .comment-box textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-top: 5px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+
+    .comments-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .comments-list li {
+        margin-top: 10px;
+    }
+
+    /* Animations */
+    .animated {
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sidebar {
+            width: 100%;
+            margin-right: 0;
+        }
+
+        .blog-posts {
+            width: 100%;
+        }
+    }
+</style>
+<body>
+    <!-- Navbar -->
+    <header class="header">
+        <div class="logo">
+            <img src="/healthlogo.jpg" alt="HealthCare Logo">
+            <span>HealthCare Center</span>
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="html/services.html">Services</a></li>
+                <li><a href="./pages/appointment.html">Appointment</a></li>
+                <li><a href="html/blogs.html">Blogs</a></li> <!-- Added the Blogs link -->
+
+                <li><a href="html/contact.html">Contact</a></li>
+                <li><a href="products.html">Shop</a></li>
+                <li><a href="html/login.html">Login/Signup</a></li>
+            </ul>
+            <div class="search">
+                <input type="text" id="search-box" placeholder="Search">
+                <button id="search-btn">Enter</button>
+            </div>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <!-- Blog Page Body Content -->
+<main class="blog-main">
+    <div class="container">
+        <!-- Sidebar Section -->
+        <div class="sidebar">
+            <h3>Blog Categories</h3>
+            <ul>
+                <li><a href="#health">Health</a></li>
+                <li><a href="#wellness">Wellness</a></li>
+                <li><a href="#nutrition">Nutrition</a></li>
+                <li><a href="#fitness">Fitness</a></li>
+            </ul>
+            <h3>Recent Posts</h3>
+            <ul id="recent-posts">
+                <!-- JavaScript will dynamically add recent blog posts here -->
+            </ul>
+        </div>
+
+        <!-- Blog Posts Section -->
+        <div class="blog-posts">
+            <h2>Latest Blogs</h2>
+
+            <!-- Blog Post 1 -->
+            <div class="blog-post animated">
+                <div class="post-header">
+                    <h3>Understanding Mental Health</h3>
+                    <p class="post-date">Published on February 10, 2025</p>
+                </div>
+                <div class="post-image">
+                    <img src="your-image-path1.jpg" alt="Mental Health Image">
+                </div>
+                <div class="post-content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. Cras pulvinar, metus eu vulputate cursus, augue purus vehicula neque, in bibendum risus risus at dui. <a href="#">Read More...</a></p>
+                </div>
+                <div class="post-video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/example_video_url" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="comments-section">
+                    <h4>Comments:</h4>
+                    <div class="comment-box">
+                        <input type="text" id="comment-name-1" placeholder="Your Name">
+                        <textarea id="comment-text-1" placeholder="Your Comment"></textarea>
+                        <button class="btn" onclick="submitComment(1)">Post Comment</button>
+                    </div>
+                    <ul class="comments-list" id="comments-list-1"></ul>
+                </div>
+            </div>
+
+            <!-- Blog Post 2 -->
+            <div class="blog-post animated">
+                <div class="post-header">
+                    <h3>Healthy Eating Tips</h3>
+                    <p class="post-date">Published on February 8, 2025</p>
+                </div>
+                <div class="post-image">
+                    <img src="your-image-path2.jpg" alt="Healthy Eating">
+                </div>
+                <div class="post-content">
+                    <p>Proin vel nisi sed erat malesuada tempor. Donec tincidunt vulputate sapien, at gravida lectus gravida eget. <a href="#">Read More...</a></p>
+                </div>
+                <div class="post-video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/example_video_url" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="comments-section">
+                    <h4>Comments:</h4>
+                    <div class="comment-box">
+                        <input type="text" id="comment-name-2" placeholder="Your Name">
+                        <textarea id="comment-text-2" placeholder="Your Comment"></textarea>
+                        <button class="btn" onclick="submitComment(2)">Post Comment</button>
+                    </div>
+                    <ul class="comments-list" id="comments-list-2"></ul>
+                </div>
+            </div>
+
+            <!-- Additional Blog Posts can be added here in the same structure -->
+        </div>
+    </div>
+</main>
+
+
+
+
+<!-- JavaScript -->
+<script>
+    // Function to handle comments submission
+    function submitComment(postId) {
+        const name = document.getElementById(`comment-name-${postId}`).value;
+        const text = document.getElementById(`comment-text-${postId}`).value;
+        if (name && text) {
+            const commentList = document.getElementById(`comments-list-${postId}`);
+            const commentItem = document.createElement('li');
+            commentItem.textContent = `${name}: ${text}`;
+            commentList.appendChild(commentItem);
+            document.getElementById(`comment-name-${postId}`).value = '';
+            document.getElementById(`comment-text-${postId}`).value = '';
+        } else {
+            alert('Please fill in both name and comment!');
+        }
+    }
+
+    // Function to dynamically load recent blog posts in the sidebar
+    window.onload = () => {
+        const recentPosts = document.querySelectorAll('.blog-post');
+        const recentPostsList = document.getElementById('recent-posts');
+        recentPosts.forEach(post => {
+            const postTitle = post.querySelector('h3').textContent;
+            const li = document.createElement('li');
+            li.textContent = postTitle;
+            recentPostsList.appendChild(li);
+        });
+    };
+</script>
+
+
+    <!-- Footer Section -->
+<footer id="contact">
+    <div class="container">
+        <!-- Profile Logo and Social Media Links -->
+        <div class="footer-logo">
+            <img src="/healthlogo.jpg" alt="HealthCare Center Logo" class="profile-logo">
+        </div>
+        
+        <div class="footer-links">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#appointment">Make an Appointment</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+        
+        <!-- Social Media Links -->
+        <div class="social-media">
+            <a href="https://facebook.com/healthcarecenter" target="_blank" class="social-icon">
+                <img src="facebook-icon.png" alt="Facebook">
+            </a>
+            <a href="https://twitter.com/healthcarecenter" target="_blank" class="social-icon">
+                <img src="twitter-icon.png" alt="Twitter">
+            </a>
+            <a href="https://linkedin.com/company/healthcarecenter" target="_blank" class="social-icon">
+                <img src="linkedin-icon.png" alt="LinkedIn">
+            </a>
+            <a href="https://instagram.com/healthcarecenter" target="_blank" class="social-icon">
+                <img src="instagram-icon.png" alt="Instagram">
+            </a>
+        </div>
+
+        <p>&copy; 2025 HealthCare Center. All rights reserved.</p>
+    </div>
+</footer>
+
+
+    <!-- Live Chat Button -->
+    <div class="live-chat" id="live-chat">
+        <button class="live-chat-btn">
+            <i class="fas fa-comments"></i> Chat with us
+        </button>
+        <div id="chat-box" class="chat-box" style="display: none;">
+            <div class="chat-header">
+                <span>Live Chat</span>
+                <button id="close-chat" class="close-chat">X</button>
+            </div>
+            <div class="chat-body">
+                <p>How can we help you today?</p>
+            </div>
+            <textarea placeholder="Type your message here..." rows="4"></textarea>
+            <button class="send-message">Send</button>
+        </div>
+    </div>
+
+    <script src="/main.js"></script>
+</body>
+</html>
+
