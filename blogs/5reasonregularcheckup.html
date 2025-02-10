@@ -3,13 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="HealthCare Center provides comprehensive healthcare services for your well-being. Schedule an appointment today.">
-    <meta name="keywords" content="healthcare, doctor, general checkup, specialist consultation, emergency care">
+    <meta name="description" content="HealthCare Center Blog: 5 Reasons for Regular Checkup and more health tips.">
+    <meta name="keywords" content="healthcare, regular checkup, health tips, medical blog">
     <meta name="author" content="HealthCare Center">
-    <title>HealthCare Center</title>
+    <title>5 Reasons for Regular Checkup | HealthCare Center Blog</title>
     <link rel="stylesheet" href="/main.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+<style>/* Animation for blog content */
+    @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+    
+    .blog-post {
+        animation: fadeIn 2s ease-in-out;
+    }
+    
+    h1.post-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .post-content {
+        margin-bottom: 2rem;
+    }
+    
+    .share-buttons a {
+        margin-right: 10px;
+    }
+    
+    .comments-section {
+        margin-top: 2rem;
+    }
+    
+    .comments-section textarea {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        resize: vertical;
+    }
+    
+    #comments-list {
+        margin-top: 1rem;
+    }
+    
+    .sidebar {
+        margin-top: 2rem;
+    }
+    
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .sidebar ul li a {
+        text-decoration: none;
+        color: #333;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .sidebar {
+            display: none;
+        }
+    
+        .blog-container {
+            width: 100%;
+        }
+    
+        .blog-post {
+            padding: 10px;
+        }
+    }
+    </style>
 <body>
     <!-- Navbar -->
     <header class="header">
@@ -23,8 +91,7 @@
                 <li><a href="/pages/about.html">About</a></li>
                 <li><a href="/pages/services.html">Services</a></li>
                 <li><a href="/pages/appointment.html">Appointment</a></li>
-                <li><a href="/pages/blog.html">Blogs</a></li> <!-- Added the Blogs link -->
-
+                <li><a href="/pages/blog.html">Blogs</a></li>
                 <li><a href="html/contact.html">Contact</a></li>
                 <li><a href="products.html">Shop</a></li>
                 <li><a href="html/login.html">Login/Signup</a></li>
@@ -34,72 +101,114 @@
                 <button id="search-btn">Enter</button>
             </div>
         </nav>
-        <div class="hamburger" id="hamburger">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
     </header>
 
+    <!-- Blog Content Section -->
+    <div class="blog-container">
+        <div class="blog-post">
+            <h1 class="post-title">5 Reasons for Regular Checkup</h1>
+            <p class="post-date">February 10, 2025 | HealthCare Center</p>
+            <div class="post-content">
+                <p>Regular checkups with your doctor are important for maintaining good health. Here are 5 reasons why you should schedule a checkup:</p>
+                <ul>
+                    <li><strong>1. Early Detection of Health Issues:</strong> Regular checkups help identify potential problems before they become serious.</li>
+                    <li><strong>2. Prevention of Chronic Diseases:</strong> Your doctor can help you make lifestyle changes to avoid chronic conditions.</li>
+                    <li><strong>3. Health Monitoring:</strong> Checkups keep track of changes in your health over time, allowing your doctor to monitor progress.</li>
+                    <li><strong>4. Personalized Advice:</strong> Doctors provide tailored advice on diet, exercise, and mental well-being based on your health.</li>
+                    <li><strong>5. Peace of Mind:</strong> Knowing you're in good health or catching a problem early reduces anxiety about the unknown.</li>
+                </ul>
+                <p>Schedule your regular checkup with us today for a healthier future!</p>
+            </div>
+            <div class="share-buttons">
+                <a href="https://facebook.com/share" target="_blank" class="social-icon">
+                    <img src="facebook-icon.png" alt="Facebook">
+                </a>
+                <a href="https://twitter.com/share" target="_blank" class="social-icon">
+                    <img src="twitter-icon.png" alt="Twitter">
+                </a>
+                <a href="https://linkedin.com/share" target="_blank" class="social-icon">
+                    <img src="linkedin-icon.png" alt="LinkedIn">
+                </a>
+                <a href="https://instagram.com/share" target="_blank" class="social-icon">
+                    <img src="instagram-icon.png" alt="Instagram">
+                </a>
+            </div>
 
-
-
-    <!-- Footer Section -->
-<footer id="contact">
-    <div class="container">
-        <!-- Profile Logo and Social Media Links -->
-        <div class="footer-logo">
-            <img src="healthlogo.jpg" alt="HealthCare Center Logo" class="profile-logo">
+            <!-- Comments Section -->
+            <div class="comments-section">
+                <h3>Comments</h3>
+                <div id="comments-list">
+                    <!-- Comments will be dynamically added here -->
+                </div>
+                <textarea id="comment-text" placeholder="Leave a comment..." rows="3"></textarea>
+                <button id="post-comment" class="send-message">Post Comment</button>
+            </div>
         </div>
-        
-        <div class="footer-links">
+
+        <!-- Recent and Categorized Posts -->
+        <div class="sidebar">
+            <h3>Recent Posts</h3>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#appointment">Make an Appointment</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#faq">FAQ</a></li>
+                <li><a href="/pages/blog/health-checkups-importance.html">The Importance of Regular Health Checkups</a></li>
+                <li><a href="/pages/blog/healthy-lifestyle-tips.html">Top 5 Tips for a Healthy Lifestyle</a></li>
+                <li><a href="/pages/blog/preventative-care-strategies.html">How Preventative Care Can Save Your Life</a></li>
+            </ul>
+            <h3>Categories</h3>
+            <ul>
+                <li><a href="/pages/blog/healthcare-tips.html">Healthcare Tips</a></li>
+                <li><a href="/pages/blog/fitness.html">Fitness & Exercise</a></li>
+                <li><a href="/pages/blog/nutrition.html">Nutrition</a></li>
             </ul>
         </div>
-        
-        <!-- Social Media Links -->
-        <div class="social-media">
-            <a href="https://facebook.com/healthcarecenter" target="_blank" class="social-icon">
-                <img src="facebook-icon.png" alt="Facebook">
-            </a>
-            <a href="https://twitter.com/healthcarecenter" target="_blank" class="social-icon">
-                <img src="twitter-icon.png" alt="Twitter">
-            </a>
-            <a href="https://linkedin.com/company/healthcarecenter" target="_blank" class="social-icon">
-                <img src="linkedin-icon.png" alt="LinkedIn">
-            </a>
-            <a href="https://instagram.com/healthcarecenter" target="_blank" class="social-icon">
-                <img src="instagram-icon.png" alt="Instagram">
-            </a>
-        </div>
-
-        <p>&copy; 2025 HealthCare Center. All rights reserved.</p>
     </div>
-</footer>
 
-
-    <!-- Live Chat Button -->
-    <div class="live-chat" id="live-chat">
-        <button class="live-chat-btn">
-            <i class="fas fa-comments"></i> Chat with us
-        </button>
-        <div id="chat-box" class="chat-box" style="display: none;">
-            <div class="chat-header">
-                <span>Live Chat</span>
-                <button id="close-chat" class="close-chat">X</button>
+    <!-- Footer Section -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-logo">
+                <img src="healthlogo.jpg" alt="HealthCare Center Logo" class="profile-logo">
             </div>
-            <div class="chat-body">
-                <p>How can we help you today?</p>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#appointment">Make an Appointment</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
             </div>
-            <textarea placeholder="Type your message here..." rows="4"></textarea>
-            <button class="send-message">Send</button>
+            <div class="social-media">
+                <a href="https://facebook.com/healthcarecenter" target="_blank" class="social-icon">
+                    <img src="facebook-icon.png" alt="Facebook">
+                </a>
+                <a href="https://twitter.com/healthcarecenter" target="_blank" class="social-icon">
+                    <img src="twitter-icon.png" alt="Twitter">
+                </a>
+                <a href="https://linkedin.com/company/healthcarecenter" target="_blank" class="social-icon">
+                    <img src="linkedin-icon.png" alt="LinkedIn">
+                </a>
+                <a href="https://instagram.com/healthcarecenter" target="_blank" class="social-icon">
+                    <img src="instagram-icon.png" alt="Instagram">
+                </a>
+            </div>
+            <p>&copy; 2025 HealthCare Center. All rights reserved.</p>
         </div>
-    </div>
+    </footer>
+    <script>
+        $(document).ready(function() {
+    $('#post-comment').click(function() {
+        var commentText = $('#comment-text').val();
+        if (commentText) {
+            var newComment = `<div class="comment">
+                                <p><strong>User:</strong> ${commentText}</p>
+                              </div>`;
+            $('#comments-list').append(newComment);
+            $('#comment-text').val('');
+        }
+    });
+});
+
+    </script>
 
     <script src="/main.js"></script>
 </body>
