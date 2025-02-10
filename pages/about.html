@@ -10,6 +10,215 @@
     <link rel="stylesheet" href="/main.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
+<!-- Styles -->
+<style>
+    /* Basic Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f7fc;
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 36px;
+        margin: 50px 0;
+        color: #333;
+    }
+
+    h2 {
+        font-size: 28px;
+        margin: 40px 0;
+        color: #007bff;
+    }
+
+    p {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    /* About Story Section */
+    .about-story {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 50px;
+    }
+
+    .story-content {
+        width: 50%;
+        text-align: left;
+    }
+
+    .story-img {
+        width: 45%;
+    }
+
+    .story-img img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    /* Mission & Vision Section */
+    .about-mission-vision {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 50px;
+    }
+
+    .about-mission, .about-vision {
+        width: 45%;
+        text-align: left;
+    }
+
+    /* Team Section */
+    .about-team {
+        margin-bottom: 50px;
+    }
+
+    .team-wrapper {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .team-member {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 30%;
+        text-align: center;
+        padding: 20px;
+        transition: transform 0.3s ease-in-out;
+        opacity: 0;
+        animation: fadeIn 1s forwards;
+    }
+
+    .team-member:hover {
+        transform: scale(1.05);
+    }
+
+    .team-member-img img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 15px;
+    }
+
+    .team-member-info h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .team-member-info p {
+        font-size: 16px;
+        color: #555;
+    }
+
+    /* Owner Section */
+    .about-owner {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 50px;
+    }
+
+    .owner-wrapper {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .owner-img {
+        width: 40%;
+    }
+
+    .owner-img img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .owner-info {
+        width: 55%;
+        text-align: left;
+    }
+
+    .owner-info h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: #007bff;
+    }
+
+    .owner-info p {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    /* Contact Section */
+    .about-contact {
+        background-color: #007bff;
+        color: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 50px;
+    }
+
+    .about-contact h2 {
+        color: #fff;
+    }
+
+    .contact-details p {
+        font-size: 18px;
+        margin: 10px 0;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .about-story, .about-mission-vision, .team-wrapper, .owner-wrapper {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .story-content, .story-img, .about-mission, .about-vision, .team-member, .owner-img, .owner-info {
+            width: 80%;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 14px;
+        }
+    }
+</style>
 <body>
     <!-- Navbar -->
     <header class="header">
@@ -40,14 +249,107 @@
             <div class="bar"></div>
         </div>
     </header>
- <!-- About Section -->
- <section id="about" class="about">
+ <!-- About Us Page Body Content -->
+<main class="about-main">
     <div class="container">
-        <h2>About Us</h2>
-        <p>We are committed to providing exceptional healthcare services to our community.</p>
-        <a href="#services" class="btn-secondary">Learn More</a>
+        <h1>About Us</h1>
+        
+        <!-- Our Story Section -->
+        <section class="about-story">
+            <div class="story-content">
+                <h2>Our Story</h2>
+                <p>We are a team of passionate healthcare professionals dedicated to providing top-notch services to our community. From the very beginning, our mission has been to make healthcare accessible and affordable for everyone. Our clinic was founded with the goal of offering personalized and professional care to our patients, fostering a welcoming environment where people feel heard, respected, and cared for.</p>
+            </div>
+            <div class="story-img">
+                <img src="your-story-image.jpg" alt="Our Story Image">
+            </div>
+        </section>
+
+        <!-- Mission & Vision Section -->
+        <section class="about-mission-vision">
+            <div class="about-mission">
+                <h2>Mission</h2>
+                <p>Our mission is to provide the highest quality healthcare services with compassion, innovation, and integrity. We believe in treating every patient with respect and offering care tailored to their individual needs.</p>
+            </div>
+            <div class="about-vision">
+                <h2>Vision</h2>
+                <p>Our vision is to become a leader in healthcare, providing exceptional service through continuous improvement and embracing new technologies to better serve our patients and community.</p>
+            </div>
+        </section>
+
+        <!-- Meet Our Team Section -->
+        <section class="about-team">
+            <h2>Meet Our Team</h2>
+            <div class="team-wrapper">
+                <!-- Team Member 1 -->
+                <div class="team-member animated">
+                    <div class="team-member-img">
+                        <img src="your-team-member1.jpg" alt="Team Member 1">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Dr. John Doe</h3>
+                        <p>Chief Medical Officer</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="team-member animated">
+                    <div class="team-member-img">
+                        <img src="your-team-member2.jpg" alt="Team Member 2">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Dr. Jane Smith</h3>
+                        <p>Pediatrician</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="team-member animated">
+                    <div class="team-member-img">
+                        <img src="your-team-member3.jpg" alt="Team Member 3">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Dr. Emily Taylor</h3>
+                        <p>Surgeon</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Owner's Details Section -->
+        <section class="about-owner">
+            <h2>Meet the Owner</h2>
+            <div class="owner-wrapper">
+                <div class="owner-img">
+                    <img src="your-owner-image.jpg" alt="Owner Image">
+                </div>
+                <div class="owner-info">
+                    <h3>Dr. Alex Williams</h3>
+                    <p><strong>Founder & CEO</strong></p>
+                    <p>Dr. Alex Williams is a highly respected physician with over 15 years of experience in healthcare. With a passion for making healthcare more accessible and efficient, Dr. Williams founded our clinic with the goal of revolutionizing patient care. Under his leadership, the clinic has grown into one of the most trusted names in the region, offering state-of-the-art facilities, a compassionate approach, and the latest in medical advancements.</p>
+                    <p>Dr. Williams holds a degree in Medicine from the prestigious [University Name], and has specialized in [specialization area]. He is committed to improving patient outcomes through a combination of advanced medical techniques and a deep understanding of patient needs. When not in the clinic, Dr. Williams enjoys [personal hobbies/interests].</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section class="about-contact">
+            <h2>Contact Us</h2>
+            <div class="contact-details">
+                <p>If you would like to learn more about our services or schedule an appointment, please get in touch with us using the information below:</p>
+                <p><strong>Email:</strong> contact@healthcare.com</p>
+                <p><strong>Phone:</strong> +1 (123) 456-7890</p>
+                <p><strong>Address:</strong> 123 Healthcare St, Cityville, Country</p>
+            </div>
+        </section>
     </div>
-</section>
+</main>
+
+
+
+<!-- JavaScript for animations -->
+
+
 <!-- Footer Section -->
 <footer id="contact">
     <div class="container">
@@ -85,6 +387,19 @@
         <p>&copy; 2025 HealthCare Center. All rights reserved.</p>
     </div>
 </footer>
+<script>
+    // Wait until all images are loaded, then trigger fade-in animation
+    window.addEventListener('load', () => {
+        const teamMembers = document.querySelectorAll('.team-member');
+
+        // Fade in team members
+        teamMembers.forEach((member, index) => {
+            setTimeout(() => {
+                member.style.opacity = 1; // Fade in each team member one by one with delay
+            }, index * 300);
+        });
+    });
+</script>
 <script src="/main.js"></script>
 
 </body>
