@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Healthcare Center</title>
+    <link rel="stylesheet" href="/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
+    <!-- <style>
+        /* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fc;
+    color: #333;
+}
+
+/* Header and Footer */
+header, footer {
+    background-color: #2d3a3a;
+    padding: 10px 0;
+    color: #fff;
+    text-align: center;
+}
+
+footer {
+    margin-top: 50px;
+}
+
+/* Products Section */
+.products-container {
+    padding: 40px;
+    text-align: center;
+}
+
+.products-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Product List */
+.products-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.product-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-card h3 {
+    margin: 15px 0;
+    font-size: 1.5rem;
+}
+
+.product-card p {
+    font-size: 1rem;
+    color: #888;
+}
+
+.product-card button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.product-card button:hover {
+    background-color: #218838;
+}
+
+/* Cart Info Section */
+.cart-info {
+    margin-top: 40px;
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cart-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+#total-value {
+    font-size: 2rem;
+    color: #28a745;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Chart Styling */
+canvas {
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .products-list {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+    </style> -->
+<style>
+    /* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Header and Footer */
+header, footer {
+    background-color: #2d3a3a;
+    padding: 10px 0;
+    color: #fff;
+    text-align: center;
+}
+
+/* Products Section */
+.products-container {
+    padding: 20px;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.products-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Product List */
+.products-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Product Image */
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Product Info */
+.product-card h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 15px 0 10px 0;
+}
+
+.product-card p {
+    font-size: 1.1rem;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+/* Price and Ratings */
+.product-card .price {
+    font-size: 1.3rem;
+    color: #28a745;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.product-card .ratings {
+    margin-bottom: 10px;
+}
+
+.product-card .ratings span {
+    color: #ff9800;
+}
+
+/* Buttons */
+.product-card .buy-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.product-card .buy-btn:hover {
+    background-color: #218838;
+}
+
+/* Cart Info Section */
+.cart-info {
+    margin-top: 40px;
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.cart-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+#total-value {
+    font-size: 2rem;
+    color: #28a745;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Chart Styling */
+canvas {
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .products-container {
+        padding: 15px;
+    }
+
+    .product-card {
+        margin-bottom: 20px;
+    }
+}
+
+</style>
+</head>
+
+
+
+<body>
+   <!-- Navbar -->
+   <header class="header">
+    <div class="logo">
+        <img src="healthlogo.jpg" alt="HealthCare Logo">
+        <span>HealthCare Center</span>
+    </div>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/pages/about.html">About</a></li>
+            <li><a href="/pages/services.html">Services</a></li>
+            <li><a href="/pages/appointment.html">Appointment</a></li>
+            <li><a href="/pages/blog.html">Blogs</a></li> <!-- Added the Blogs link -->
+
+            <li><a href="html/contact.html">Contact</a></li>
+            <li><a href="products.html">Shop</a></li>
+            <li><a href="html/login.html">Login/Signup</a></li>
+        </ul>
+        <div class="search">
+            <input type="text" id="search-box" placeholder="Search">
+            <button id="search-btn">Enter</button>
+        </div>
+    </nav>
+    <div class="hamburger" id="hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+</header>
+    <section class="products-container">
+        <h1>Our Products</h1>
+        <div class="products-list">
+            <!-- Product items will be dynamically injected here -->
+        </div>
+        <div class="cart-info">
+            <h2>Total Cart Value</h2>
+            <p id="total-value">$0.00</p>
+            <canvas id="total-chart"></canvas>
+        </div>
+    </section>
+
+       <!-- Footer Section -->
+<footer id="contact">
+    <div class="container">
+        <!-- Profile Logo and Social Media Links -->
+        <div class="footer-logo">
+            <img src="healthlogo.jpg" alt="HealthCare Center Logo" class="profile-logo">
+        </div>
+        
+        <div class="footer-links">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#appointment">Make an Appointment</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+        
+        <!-- Social Media Links -->
+        <div class="social-media">
+            <a href="https://facebook.com/healthcarecenter" target="_blank" class="social-icon">
+                <img src="facebook-icon.png" alt="Facebook">
+            </a>
+            <a href="https://twitter.com/healthcarecenter" target="_blank" class="social-icon">
+                <img src="twitter-icon.png" alt="Twitter">
+            </a>
+            <a href="https://linkedin.com/company/healthcarecenter" target="_blank" class="social-icon">
+                <img src="linkedin-icon.png" alt="LinkedIn">
+            </a>
+            <a href="https://instagram.com/healthcarecenter" target="_blank" class="social-icon">
+                <img src="instagram-icon.png" alt="Instagram">
+            </a>
+        </div>
+
+        <p>&copy; 2025 HealthCare Center. All rights reserved.</p>
+    </div>
+</footer>
+
+
+    <!-- Live Chat Button -->
+    <div class="live-chat" id="live-chat">
+        <button class="live-chat-btn">
+            <i class="fas fa-comments"></i> Chat with us
+        </button>
+        <div id="chat-box" class="chat-box" style="display: none;">
+            <div class="chat-header">
+                <span>Live Chat</span>
+                <button id="close-chat" class="close-chat">X</button>
+            </div>
+            <div class="chat-body">
+                <p>How can we help you today?</p>
+            </div>
+            <textarea placeholder="Type your message here..." rows="4"></textarea>
+            <button class="send-message">Send</button>
+        </div>
+    </div>
+<!-- <script>
+    // Define products data (name, price, image)
+const products = [
+    { name: "Product 1", price: 10, image: "https://via.placeholder.com/250x150?text=Product+1" },
+    { name: "Product 2", price: 20, image: "https://via.placeholder.com/250x150?text=Product+2" },
+    { name: "Product 3", price: 30, image: "https://via.placeholder.com/250x150?text=Product+3" },
+    { name: "Product 4", price: 40, image: "https://via.placeholder.com/250x150?text=Product+4" },
+    { name: "Product 5", price: 50, image: "https://via.placeholder.com/250x150?text=Product+5" },
+    { name: "Product 6", price: 60, image: "https://via.placeholder.com/250x150?text=Product+6" },
+    { name: "Product 7", price: 70, image: "https://via.placeholder.com/250x150?text=Product+7" },
+    { name: "Product 8", price: 80, image: "https://via.placeholder.com/250x150?text=Product+8" },
+    { name: "Product 9", price: 90, image: "https://via.placeholder.com/250x150?text=Product+9" },
+    { name: "Product 10", price: 100, image: "https://via.placeholder.com/250x150?text=Product+10" },
+    { name: "Product 11", price: 110, image: "https://via.placeholder.com/250x150?text=Product+11" },
+    { name: "Product 12", price: 120, image: "https://via.placeholder.com/250x150?text=Product+12" },
+    { name: "Product 13", price: 130, image: "https://via.placeholder.com/250x150?text=Product+13" },
+    { name: "Product 14", price: 140, image: "https://via.placeholder.com/250x150?text=Product+14" },
+    { name: "Product 15", price: 150, image: "https://via.placeholder.com/250x150?text=Product+15" }
+];
+
+// Function to render products
+function renderProducts() {
+    const productContainer = document.querySelector(".products-list");
+    products.forEach(product => {
+        const productCard = document.createElement("div");
+        productCard.classList.add("product-card");
+        productCard.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>$${product.price}</p>
+            <button onclick="addToCart(${product.price})">Buy Now</button>
+        `;
+        productContainer.appendChild(productCard);
+    });
+}
+
+// Initialize chart
+const ctx = document.getElementById("total-chart").getContext("2d");
+const totalChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['Total Price'],
+        datasets: [{
+            data: [0], // Placeholder for total value
+            backgroundColor: ['#28a745'],
+            hoverOffset: 4
+        }]
+    },
+    options: {
+        responsive: true
+    }
+});
+
+// Update cart value
+let totalValue = 0;
+
+function addToCart(price) {
+    totalValue += price;
+    document.getElementById("total-value").innerText = `$${totalValue.toFixed(2)}`;
+    
+    // Update chart
+    totalChart.data.datasets[0].data = [totalValue];
+    totalChart.update();
+}
+
+// Render the products
+renderProducts();
+
+</script> -->
+    
+<script>
+    // Sample product data
+const products = [
+    { name: "Health Supplement A", price: 10, image: "https://via.placeholder.com/250x150?text=Product+1", rating: 4 },
+    { name: "Health Supplement B", price: 20, image: "https://via.placeholder.com/250x150?text=Product+2", rating: 5 },
+    { name: "Health Supplement C", price: 30, image: "https://via.placeholder.com/250x150?text=Product+3", rating: 3 },
+    { name: "Health Supplement D", price: 40, image: "https://via.placeholder.com/250x150?text=Product+4", rating: 4 },
+    { name: "Health Supplement E", price: 50, image: "https://via.placeholder.com/250x150?text=Product+5", rating: 5 },
+    { name: "Health Supplement F", price: 60, image: "https://via.placeholder.com/250x150?text=Product+6", rating: 2 },
+    { name: "Health Supplement G", price: 70, image: "https://via.placeholder.com/250x150?text=Product+7", rating: 4 },
+    { name: "Health Supplement H", price: 80, image: "https://via.placeholder.com/250x150?text=Product+8", rating: 3 },
+    { name: "Health Supplement I", price: 90, image: "https://via.placeholder.com/250x150?text=Product+9", rating: 5 },
+    { name: "Health Supplement J", price: 100, image: "https://via.placeholder.com/250x150?text=Product+10", rating: 4 }
+];
+
+// Render products
+function renderProducts() {
+    const productContainer = document.querySelector(".products-list");
+    products.forEach(product => {
+        const productCard = document.createElement("div");
+        productCard.classList.add("product-card");
+
+        productCard.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>Price: $${product.price}</p>
+            <div class="price">$${product.price}</div>
+            <div class="ratings">
+                ${'★'.repeat(product.rating)}${'☆'.repeat(5 - product.rating)}
+            </div>
+            <button class="buy-btn" onclick="addToCart(${product.price})">Buy Now</button>
+        `;
+
+        productContainer.appendChild(productCard);
+    });
+}
+
+// Chart setup
+const ctx = document.getElementById("total-chart").getContext("2d");
+const totalChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['Total Price'],
+        datasets: [{
+            data: [0], // placeholder for the total value
+            backgroundColor: ['#28a745'],
+            hoverOffset: 4
+        }]
+    },
+    options: {
+        responsive: true
+    }
+});
+
+// Add item to cart and update total
+let totalValue = 0;
+
+function addToCart(price) {
+    totalValue += price;
+    document.getElementById("total-value").innerText = `$${totalValue.toFixed(2)}`;
+
+    // Update chart
+    totalChart.data.datasets[0].data = [totalValue];
+    totalChart.update();
+}
+
+// Initialize product rendering
+renderProducts();
+
+</script>
+<script src="/main.js"></script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Healthcare Center</title>
+    <title>Sign Up | Healthcare Center</title>
     <link rel="stylesheet" href="/main.css">
     <script src="script.js" defer></script>
 </head>
@@ -17,28 +17,38 @@ body {
     color: #333;
 }
 
-/* Contact Container */
-.contact-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 50px;
-    flex-wrap: wrap;
+header, footer {
+    background-color: #2d3a3a;
+    padding: 10px 0;
+    color: #fff;
+    text-align: center;
 }
 
-.contact-form-container {
-    flex: 1;
-    max-width: 45%;
+footer {
+    margin-top: 50px;
+}
+
+/* Form Container */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-box {
     background-color: #fff;
-    padding: 30px;
+    padding: 40px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
 }
 
-.contact-form-container h1 {
-    font-size: 2rem;
-    color: #2d3a3a;
+h1 {
     margin-bottom: 20px;
-    text-align: center;
+    color: #2d3a3a;
 }
 
 .input-group {
@@ -51,17 +61,13 @@ body {
     margin-bottom: 8px;
 }
 
-.input-group input, .input-group textarea {
+.input-group input {
     width: 100%;
     padding: 12px;
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-}
-
-.input-group textarea {
-    resize: vertical;
 }
 
 /* Button Styling */
@@ -81,58 +87,45 @@ button:hover {
     background-color: #218838;
 }
 
-#form-message {
+/* Toggle Form Link */
+.toggle-form p {
+    font-size: 0.9rem;
+}
+
+.toggle-form a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.toggle-form a:hover {
+    text-decoration: underline;
+}
+
+/* Message */
+#login-message, #signup-message {
     margin-top: 20px;
     font-size: 1.2rem;
-    color: #28a745;
-    text-align: center;
+    color: #e74c3c;
 }
 
-/* Contact Information */
-.contact-info {
-    flex: 1;
-    max-width: 45%;
-    padding: 30px;
-    background-color: #fff;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-.contact-info h2 {
-    font-size: 1.8rem;
-    color: #2d3a3a;
-    margin-bottom: 20px;
-}
-
-.contact-info p {
-    font-size: 1rem;
-    margin-bottom: 10px;
-}
-
-/* Map Section */
-.map {
-    margin-top: 20px;
-}
-
-/* Media Queries for Responsiveness */
+/* Responsive Design */
 @media (max-width: 768px) {
-    .contact-container {
+    .form-container {
         flex-direction: column;
     }
 
-    .contact-form-container, .contact-info {
+    .form-box {
+        width: 90%;
         max-width: 100%;
-        margin-bottom: 30px;
     }
 }
 
 </style>
 <body>
-    
-      <!-- Navbar -->
+    <!-- Navbar -->
     <header class="header">
         <div class="logo">
-            <img src="/healthlogo.jpg" alt="HealthCare Logo">
+            <img src="healthlogo.jpg" alt="HealthCare Logo">
             <span>HealthCare Center</span>
         </div>
         <nav class="navbar">
@@ -144,8 +137,8 @@ button:hover {
                 <li><a href="/pages/blog.html">Blogs</a></li> <!-- Added the Blogs link -->
 
                 <li><a href="/pages/contact.html">Contact</a></li>
-                <li><a href="/pages/blog.html">Shop</a></li>
-                <li><a href="/pages/loginsign.html">Login/Signup</a></li>
+                <li><a href="/pages/products.html">Shop</a></li>
+                <li><a href="/pages/signup.html">Login/Signup</a></li>
             </ul>
             <div class="search">
                 <input type="text" id="search-box" placeholder="Search">
@@ -157,44 +150,38 @@ button:hover {
             <div class="bar"></div>
             <div class="bar"></div>
         </div>
-    
     </header>
 
-    <section class="contact-container">
-        <div class="contact-form-container">
-            <h1>Contact Us</h1>
-            <form id="contact-form">
+    <section class="form-container">
+        <div class="form-box">
+            <h1>Sign Up</h1>
+            <form id="signup-form">
                 <div class="input-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" name="signup-name" placeholder="Your Full Name" required>
                 </div>
                 <div class="input-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    <label for="signup-email">Email Address</label>
+                    <input type="email" id="signup-email" name="signup-email" placeholder="Your Email" required>
                 </div>
                 <div class="input-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" name="signup-password" placeholder="Your Password" required>
                 </div>
-                <button type="submit" id="submit-btn">Send Message</button>
+                <div class="input-group">
+                    <label for="signup-confirm-password">Confirm Password</label>
+                    <input type="password" id="signup-confirm-password" name="signup-confirm-password" placeholder="Confirm Password" required>
+                </div>
+                <button type="submit">Sign Up</button>
             </form>
-            <div id="form-message"></div>
-        </div>
-        
-        <div class="contact-info">
-            <h2>Our Location</h2>
-            <p>Healthcare Center Address</p>
-            <p>Phone: (123) 456-7890</p>
-            <p>Email: contact@healthcare.com</p>
-            <div class="map">
-                <!-- Insert Google Map iframe here -->
-                <iframe src="https://www.google.com/maps/embed?pb=YOUR_MAP_URL" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="toggle-form">
+                <p>Already have an account? <a href="login.html">Login here</a></p>
             </div>
+            <div id="signup-message"></div>
         </div>
     </section>
 
-    <footer>
-<!-- Footer Section -->
+   <!-- Footer Section -->
 <footer id="contact">
     <div class="container">
         <!-- Profile Logo and Social Media Links -->
@@ -250,36 +237,54 @@ button:hover {
             <button class="send-message">Send</button>
         </div>
     </div>
-
-    <script src="main.js"></script>
-</body>
-</html>
-    </footer>
-</body>
-<script>
-    // Simple form submission and animation for feedback
-document.getElementById("contact-form").addEventListener("submit", function(event) {
+    <script>
+        // Handle Login Form submission
+document.getElementById("login-form").addEventListener("submit", function(event) {
     event.preventDefault();
 
-    // Simple form validation
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
+    const email = document.getElementById("login-email").value;
+    const password = document.getElementById("login-password").value;
 
-    if (name && email && message) {
-        // Simulate form submission success
-        document.getElementById("form-message").innerText = "Thank you for your message! We will get back to you soon.";
-        document.getElementById("form-message").style.color = "#28a745"; // Success green color
-
-        // Reset form fields
-        document.getElementById("contact-form").reset();
+    // Basic validation
+    if (email && password) {
+        // Simulate login success
+        document.getElementById("login-message").innerText = "Login Successful!";
+        document.getElementById("login-message").style.color = "#28a745";
+        document.getElementById("login-form").reset();
     } else {
-        // Simulate form validation failure
-        document.getElementById("form-message").innerText = "Please fill out all fields.";
-        document.getElementById("form-message").style.color = "#e74c3c"; // Error red color
+        document.getElementById("login-message").innerText = "Please fill in both fields.";
+        document.getElementById("login-message").style.color = "#e74c3c";
     }
 });
 
-</script>
-<script src="/main.js"></script>
+// Handle Signup Form submission
+document.getElementById("signup-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("signup-name").value;
+    const email = document.getElementById("signup-email").value;
+    const password = document.getElementById("signup-password").value;
+    const confirmPassword = document.getElementById("signup-confirm-password").value;
+
+    // Basic validation
+    if (name && email && password && confirmPassword) {
+        if (password === confirmPassword) {
+            // Simulate signup success
+            document.getElementById("signup-message").innerText = "Sign Up Successful!";
+            document.getElementById("signup-message").style.color = "#28a745";
+            document.getElementById("signup-form").reset();
+        } else {
+            document.getElementById("signup-message").innerText = "Passwords do not match.";
+            document.getElementById("signup-message").style.color = "#e74c3c";
+        }
+    } else {
+        document.getElementById("signup-message").innerText = "Please fill in all fields.";
+        document.getElementById("signup-message").style.color = "#e74c3c";
+    }
+});
+
+    </script>
+
+    <script src="/main.js"></script>
+</body>
 </html>

@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Healthcare Center</title>
+    <link rel="stylesheet" href="/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<style>
+    /* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+/* Cart Info Section - Added Quantity */
+.cart-info {
+    margin-top: 40px;
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.cart-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+#total-value {
+    font-size: 2rem;
+    color: #28a745;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Product Card Quantity */
+.product-card .quantity {
+    font-size: 1.1rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+
+/* Header and Footer */
+header, footer {
+    background-color: #2d3a3a;
+    padding: 10px 0;
+    color: #fff;
+    text-align: center;
+}
+
+/* Products Section */
+.products-container {
+    padding: 20px;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.products-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Product List */
+.products-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Product Image */
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Product Info */
+.product-card h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 15px 0 10px 0;
+}
+
+.product-card p {
+    font-size: 1.1rem;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.product-card .price {
+    font-size: 1.3rem;
+    color: #28a745;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.product-card .ratings {
+    margin-bottom: 10px;
+}
+
+.product-card .ratings span {
+    color: #ff9800;
+}
+
+/* Buttons */
+.product-card .buy-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.product-card .buy-btn:hover {
+    background-color: #218838;
+}
+
+.product-card .cancel-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    display: none;
+}
+
+.product-card .cancel-btn:hover {
+    background-color: #c82333;
+}
+
+/* Cart Info Section */
+.cart-info {
+    margin-top: 40px;
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.cart-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+#total-value {
+    font-size: 2rem;
+    color: #28a745;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Chart Styling */
+canvas {
+    margin-top: 20px;
+}
+
+/* Order Tracking Section */
+.order-tracking {
+    margin-top: 40px;
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+#order-id {
+    padding: 10px;
+    font-size: 1rem;
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+#order-status {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.review-section {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+.review-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+#review-text {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .products-container {
+        padding: 15px;
+    }
+
+    .product-card {
+        margin-bottom: 20px;
+    }
+}
+
+</style>
+<body>
+    <!-- Navbar -->
+    <header class="header">
+        <div class="logo">
+            <img src="/healthlogo.jpg" alt="HealthCare Logo">
+            <span>Health Care Center</span>
+        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/pages/about.html">About</a></li>
+                <li><a href="/pages/services.html">Services</a></li>
+                <li><a href="/pages/appointment.html">Appointment</a></li>
+                <li><a href="/pages/blog.html">Blogs</a></li> <!-- Added the Blogs link -->
+
+                <li><a href="html/contact.html">Contact</a></li>
+                <li><a href="products.html">Shop</a></li>
+                <li><a href="html/login.html">Login/Signup</a></li>
+            </ul>
+            <div class="search">
+                <input type="text" id="search-box" placeholder="Search">
+                <button id="search-btn">Enter</button>
+            </div>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <section class="products-container">
+        <h1>Our Products</h1>
+        <div class="products-list">
+            <!-- Product items will be dynamically injected here -->
+        </div>
+    </section>
+
+    <section class="cart-info">
+        <h2>Total Cart Value</h2>
+        <p id="total-value">$0.00</p>
+        <canvas id="total-chart"></canvas>
+        <div id="payment-section" style="display:none;">
+            <button onclick="initiatePayment()">Proceed to Payment</button>
+        </div>
+    </section>
+
+    <section class="order-tracking">
+        <h2>Track Your Order</h2>
+        <input type="text" id="order-id" placeholder="Enter Order ID to Track" />
+        <button onclick="trackOrder()">Track Order</button>
+        <p id="order-status"></p>
+    </section>
+
+    <section class="review-section">
+        <h2>Product Reviews</h2>
+        <div id="reviews-list">
+            <!-- Reviews for the product will be shown here -->
+        </div>
+        <textarea id="review-text" placeholder="Write your review here..."></textarea>
+        <button onclick="submitReview()">Submit Review</button>
+    </section>
+
+  <!-- Footer Section -->
+<footer id="contact">
+    <div class="container">
+        <!-- Profile Logo and Social Media Links -->
+        <div class="footer-logo">
+            <img src="healthlogo.jpg" alt="HealthCare Center Logo" class="profile-logo">
+        </div>
+        
+        <div class="footer-links">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#appointment">Make an Appointment</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+        
+        <!-- Social Media Links -->
+        <div class="social-media">
+            <a href="https://facebook.com/healthcarecenter" target="_blank" class="social-icon">
+                <img src="facebook-icon.png" alt="Facebook">
+            </a>
+            <a href="https://twitter.com/healthcarecenter" target="_blank" class="social-icon">
+                <img src="twitter-icon.png" alt="Twitter">
+            </a>
+            <a href="https://linkedin.com/company/healthcarecenter" target="_blank" class="social-icon">
+                <img src="linkedin-icon.png" alt="LinkedIn">
+            </a>
+            <a href="https://instagram.com/healthcarecenter" target="_blank" class="social-icon">
+                <img src="instagram-icon.png" alt="Instagram">
+            </a>
+        </div>
+
+        <p>&copy; 2025 HealthCare Center. All rights reserved.</p>
+    </div>
+</footer>
+
+
+    <!-- Live Chat Button -->
+    <div class="live-chat" id="live-chat">
+        <button class="live-chat-btn">
+            <i class="fas fa-comments"></i> Chat with us
+        </button>
+        <div id="chat-box" class="chat-box" style="display: none;">
+            <div class="chat-header">
+                <span>Live Chat</span>
+                <button id="close-chat" class="close-chat">X</button>
+            </div>
+            <div class="chat-body">
+                <p>How can we help you today?</p>
+            </div>
+            <textarea placeholder="Type your message here..." rows="4"></textarea>
+            <button class="send-message">Send</button>
+        </div>
+    </div>
+    <!-- <script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        //  product data
+const products = [
+    { id: 1, name: "Health Supplement A", price: 10, image: "https://via.placeholder.com/250x150?text=Product+1", rating: 4, description: "A great health supplement to boost your energy and immune system.", articleType: "Supplement", reviews: [] },
+    { id: 2, name: "Health Supplement B", price: 20, image: "https://via.placeholder.com/250x150?text=Product+2", rating: 5, description: "An effective vitamin C supplement for better skin and immunity.", articleType: "Vitamin", reviews: [] },
+    { id: 3, name: "Organic Tea", price: 15, image: "https://via.placeholder.com/250x150?text=Product+3", rating: 3, description: "A soothing organic tea for stress relief.", articleType: "Beverage", reviews: [] },
+    { id: 4, name: "Herbal Oil", price: 25, image: "https://via.placeholder.com/250x150?text=Product+4", rating: 5, description: "An herbal oil for relaxation and joint pain relief.", articleType: "Oil", reviews: [] },
+    { id: 5, name: "Vitamin D3", price: 12, image: "https://via.placeholder.com/250x150?text=Product+5", rating: 4, description: "Boost your immunity with Vitamin D3.", articleType: "Vitamin", reviews: [] },
+    // Add more products as needed...
+];
+
+// Cart and review management
+let cart = [];
+let totalValue = 0;
+
+// Order Tracking System
+let orderStatus = {};
+
+function renderProducts() {
+    const productContainer = document.querySelector(".products-list");
+    productContainer.innerHTML = ''; // Clear existing products
+
+    products.forEach(product => {
+        const productCard = document.createElement("div");
+        productCard.classList.add("product-card");
+
+        productCard.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+            <p><strong>Article Type:</strong> ${product.articleType}</p>
+            <p class="price">$${product.price}</p>
+            <div class="ratings">
+                ${'★'.repeat(product.rating)}${'☆'.repeat(5 - product.rating)}
+            </div>
+            <button class="buy-btn" onclick="addToCart(${product.id})">Buy Now</button>
+            <button class="cancel-btn" onclick="cancelOrder(${product.id})">Cancel Order</button>
+        `;
+
+        productContainer.appendChild(productCard);
+    });
+}
+
+// Add Product to Cart
+function addToCart(productId) {
+    const product = products.find(p => p.id === productId);
+    cart.push(product);
+    totalValue += product.price;
+
+    document.getElementById("total-value").innerText = `$${totalValue.toFixed(2)}`;
+    updateChart();
+    togglePaymentButton();
+}
+
+// Cancel Order
+function cancelOrder(productId) {
+    const product = products.find(p => p.id === productId);
+    cart = cart.filter(p => p.id !== productId);
+    totalValue -= product.price;
+
+    document.getElementById("total-value").innerText = totalValue > 0 ? `$${totalValue.toFixed(2)}` : "No Orders";
+    updateChart();
+    togglePaymentButton();
+}
+
+// Update Chart.js Pie Chart
+const ctx = document.getElementById("total-chart").getContext("2d");
+const totalChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['Total Price'],
+        datasets: [{
+            data: [0], // placeholder for the total value
+            backgroundColor: ['#28a745'],
+            hoverOffset: 4
+        }]
+    },
+    options: {
+        responsive: true
+    }
+});
+
+function updateChart() {
+    totalChart.data.datasets[0].data = [totalValue];
+    totalChart.update();
+}
+
+// Toggle Payment Button
+function togglePaymentButton() {
+    if (totalValue > 0) {
+        document.getElementById("payment-section").style.display = 'block';
+    } else {
+        document.getElementById("payment-section").style.display = 'none';
+    }
+}
+
+// Payment Button
+function initiatePayment() {
+    alert("Proceeding to payment...");
+    // Integrate payment gateway API here
+}
+
+// Order Tracking
+function trackOrder() {
+    const orderId = document.getElementById("order-id").value;
+
+    if (orderStatus[orderId]) {
+        document.getElementById("order-status").innerText = `Order Status: ${orderStatus[orderId]}`;
+    } else {
+        document.getElementById("order-status").innerText = "Order ID not found!";
+    }
+}
+
+// Initialize product rendering
+renderProducts();
+
+    </script> -->
+<script>
+    // Sample product data
+const products = [
+    { id: 1, name: "Health Supplement A", price: 10, image: "https://via.placeholder.com/250x150?text=Product+1", rating: 4, description: "A great health supplement to boost your energy and immune system.", articleType: "Supplement", reviews: [] },
+    { id: 2, name: "Health Supplement B", price: 20, image: "https://via.placeholder.com/250x150?text=Product+2", rating: 5, description: "An effective vitamin C supplement for better skin and immunity.", articleType: "Vitamin", reviews: [] },
+    { id: 3, name: "Organic Tea", price: 15, image: "https://via.placeholder.com/250x150?text=Product+3", rating: 3, description: "A soothing organic tea for stress relief.", articleType: "Beverage", reviews: [] },
+    { id: 4, name: "Herbal Oil", price: 25, image: "https://via.placeholder.com/250x150?text=Product+4", rating: 5, description: "An herbal oil for relaxation and joint pain relief.", articleType: "Oil", reviews: [] },
+    { id: 5, name: "Vitamin D3", price: 12, image: "https://via.placeholder.com/250x150?text=Product+5", rating: 4, description: "Boost your immunity with Vitamin D3.", articleType: "Vitamin", reviews: [] },
+  
+    // Add more products as needed...
+];
+
+// Cart and review management
+let cart = [];
+let totalValue = 0;
+
+// Order Tracking System
+let orderStatus = {};
+
+function renderProducts() {
+    const productContainer = document.querySelector(".products-list");
+    productContainer.innerHTML = ''; // Clear existing products
+
+    products.forEach(product => {
+        const productCard = document.createElement("div");
+        productCard.classList.add("product-card");
+
+        productCard.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+            <p><strong>Article Type:</strong> ${product.articleType}</p>
+            <p class="price">$${product.price}</p>
+            <div class="ratings">
+                ${'★'.repeat(product.rating)}${'☆'.repeat(5 - product.rating)}
+            </div>
+            <button class="buy-btn" onclick="addToCart(${product.id})">Buy Now</button>
+            <div class="quantity" id="quantity-${product.id}"></div>
+            <button class="cancel-btn" onclick="cancelOrder(${product.id})" style="display:none;">Cancel Order</button>
+        `;
+
+        productContainer.appendChild(productCard);
+    });
+}
+
+// Add Product to Cart
+function addToCart(productId) {
+    const product = products.find(p => p.id === productId);
+
+    // Check if product is already in cart
+    let existingProduct = cart.find(p => p.id === productId);
+
+    if (existingProduct) {
+        existingProduct.quantity += 1; // Increase quantity
+    } else {
+        cart.push({ ...product, quantity: 1 }); // Add new product with quantity 1
+    }
+
+    totalValue += product.price;
+    document.getElementById("total-value").innerText = `$${totalValue.toFixed(2)}`;
+    
+    // Update the quantity display
+    updateQuantityDisplay(productId);
+
+    updateChart();
+    togglePaymentButton();
+}
+
+// Cancel Order
+function cancelOrder(productId) {
+    const productIndex = cart.findIndex(p => p.id === productId);
+    
+    if (productIndex >= 0) {
+        const product = cart[productIndex];
+        totalValue -= product.price * product.quantity; // Decrease total value by quantity of the product
+        cart.splice(productIndex, 1); // Remove the product from the cart
+    }
+
+    // Update the total and display
+    document.getElementById("total-value").innerText = totalValue > 0 ? `$${totalValue.toFixed(2)}` : "No Orders";
+    
+    // Update the chart
+    updateChart();
+    
+    // Remove the quantity display and cancel button
+    updateQuantityDisplay(productId);
+    togglePaymentButton();
+}
+
+// Update Quantity Display
+function updateQuantityDisplay(productId) {
+    const product = products.find(p => p.id === productId);
+    const productInCart = cart.find(p => p.id === productId);
+
+    const quantityElement = document.getElementById(`quantity-${productId}`);
+
+    if (productInCart) {
+        quantityElement.innerText = `Quantity: ${productInCart.quantity} item${productInCart.quantity > 1 ? 's' : ''}`;
+        document.querySelector(`.cancel-btn`).style.display = 'inline-block';
+    } else {
+        quantityElement.innerText = '';
+        document.querySelector(`.cancel-btn`).style.display = 'none';
+    }
+}
+
+// Update Chart.js Pie Chart
+const ctx = document.getElementById("total-chart").getContext("2d");
+const totalChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['Total Price'],
+        datasets: [{
+            data: [0], // placeholder for the total value
+            backgroundColor: ['#28a745'],
+            hoverOffset: 4
+        }]
+    },
+    options: {
+        responsive: true
+    }
+});
+
+function updateChart() {
+    totalChart.data.datasets[0].data = [totalValue];
+    totalChart.update();
+}
+
+// Toggle Payment Button
+function togglePaymentButton() {
+    if (totalValue > 0) {
+        document.getElementById("payment-section").style.display = 'block';
+    } else {
+        document.getElementById("payment-section").style.display = 'none';
+    }
+}
+
+// Payment Button
+function initiatePayment() {
+    alert("Proceeding to payment...");
+    // Integrate payment gateway API here
+}
+
+// Order Tracking
+function trackOrder() {
+    const orderId = document.getElementById("order-id").value;
+
+    if (orderStatus[orderId]) {
+        document.getElementById("order-status").innerText = `Order Status: ${orderStatus[orderId]}`;
+    } else {
+        document.getElementById("order-status").innerText = "Order ID not found!";
+    }
+}
+
+// Initialize product rendering
+renderProducts();
+
+</script>
+<script src="/main.js"></script>
+</body>
+
+</html>
