@@ -10,6 +10,95 @@
     <link rel="stylesheet" href="main.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
+<style>/* About Section */
+    .about {
+      padding: 50px 0;
+      background-color: #f8f8f8;
+    }
+    
+    .about .container {
+      text-align: center;
+    }
+    
+    /* Owner Section Styles */
+    .owner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 30px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    
+    .owner-photo {
+      width: 150px;
+      height: 150px;
+      margin-right: 30px;
+      border-radius: 50%;
+      overflow: hidden;
+      transform: translateY(-30px);
+      animation: slideUp 1s ease-out forwards;
+    }
+    
+    .owner-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .owner-details {
+      max-width: 500px;
+      text-align: left;
+      transform: translateY(-30px);
+      animation: slideUp 1s ease-out 0.3s forwards;
+    }
+    
+    .owner-details h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+    
+    .owner-details p {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.5;
+    }
+    
+    .owner-details a {
+      margin-top: 20px;
+      display: inline-block;
+      background-color: #0066cc;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    
+    .owner-details a:hover {
+      background-color: #0055a5;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    
+    @keyframes slideUp {
+      0% {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    </style>
 <body>
     <!-- Navbar -->
     <header class="header">
@@ -147,14 +236,31 @@
         </div>
     </footer> -->
   <!-- About Section -->
-  <section id="about" class="about">
+  <!-- About Section -->
+<section id="about" class="about">
     <div class="container">
-        <h2>About Us</h2>
-    
-        <p>We are committed to providing exceptional healthcare services to our community.</p>
-        <a href="/pages/about.html" class="btn-secondary">Learn More</a>
+      <h2>About Us</h2>
+  
+      <p>We are committed to providing exceptional healthcare services to our community.</p>
+      <a href="/pages/about.html" class="btn-secondary">Learn More</a>
+  
+      <!-- Owner Section -->
+      <div class="owner">
+        <div class="owner-photo">
+          <img src="/media/owner/ahmad.jpg" alt="Owner Photo" id="owner-img">
+        </div>
+        <div class="owner-details">
+          <h3>Meet Our Owner</h3>
+          <p id="owner-name">Muhammad Ahmad</p>
+          <p id="owner-bio">Mr. Ahmad has been dedicated to the healthcare industry for over 20 years, ensuring high-quality services for the community.</p>
+          <a href="mailto:owner@example.com" class="btn-secondary">Contact Owner</a>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
+  
+  
+  
     
 <!-- Footer Section -->
 <footer id="contact">
@@ -214,5 +320,30 @@
     </div>
 
     <script src="main.js"></script>
+
+<script>
+    // JavaScript for interactivity (script.js)
+document.addEventListener("DOMContentLoaded", function() {
+  const ownerName = document.getElementById("owner-name");
+  const ownerBio = document.getElementById("owner-bio");
+  const ownerImage = document.getElementById("owner-img");
+
+  // Event to animate text content when the owner section is in view
+  window.addEventListener("scroll", function() {
+    const ownerSection = document.querySelector('.owner');
+    const rect = ownerSection.getBoundingClientRect();
+
+    // Trigger animation when the owner section comes into the viewport
+    if (rect.top < window.innerHeight && rect.bottom >= 0) {
+      ownerName.classList.add('fadeInText');
+      ownerBio.classList.add('fadeInText');
+      ownerImage.classList.add('zoomIn');
+    }
+  });
+});
+
+</script>
+
 </body>
+
 </html>
