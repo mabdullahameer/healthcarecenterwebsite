@@ -9,6 +9,61 @@
     <script src="script.js" defer></script>
 </head>
 <style>
+    /* styles.css */
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.search-container {
+  margin: 20px;
+}
+
+#search-input {
+  padding: 10px;
+  width: 300px;
+  font-size: 16px;
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 20px;
+}
+
+.product-card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-align: center;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+}
+
+.pagination {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#page-numbers {
+  margin: 0 20px;
+}
+
     /* General Styling */
 body {
     font-family: 'Arial', sans-serif;
@@ -267,9 +322,9 @@ canvas {
                 <li><a href="/pages/appointment.html">Appointment</a></li>
                 <li><a href="/pages/blog.html">Blogs</a></li> <!-- Added the Blogs link -->
 
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="products.html">Shop</a></li>
-                <li><a href="html/login.html">Login/Signup</a></li>
+                <li><a href="/pages/contact.html">Contact</a></li>
+                <li><a href="/pages/products.html">Shop</a></li>
+                <li><a href="/pages/signup.html">Login/Signup</a></li>
             </ul>
             <div class="search">
                 <input type="text" id="search-box" placeholder="Search">
@@ -289,6 +344,20 @@ canvas {
             <!-- Product items will be dynamically injected here -->
         </div>
     </section>
+
+    <!-- <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search Products..." onkeyup="searchProducts()">
+      </div> -->
+    
+      <div id="product-container" class="product-container">
+      </div>
+    
+      <div class="pagination">
+        <button id="prev-btn" onclick="changePage(-1)">Previous</button>
+        <span id="page-numbers"></span>
+        <button id="next-btn" onclick="changePage(1)">Next</button>
+      </div>
+    
 
     <section class="cart-info">
         <h2>Total Cart Value</h2>
@@ -508,13 +577,14 @@ renderProducts();
 
     </script> -->
 <script>
+    
     // Sample product data
 const products = [
-    { id: 1, name: "Health Supplement A", price: 10, image: "" , rating: 4, description: "A great health supplement to boost your energy and immune system.", articleType: "Supplement", reviews: [] },
-    { id: 2, name: "Health Supplement B", price: 20, image: "https://via.placeholder.com/250x150?text=Product+2", rating: 5, description: "An effective vitamin C supplement for better skin and immunity.", articleType: "Vitamin", reviews: [] },
-    { id: 3, name: "Organic Tea", price: 15, image: "https://via.placeholder.com/250x150?text=Product+3", rating: 3, description: "A soothing organic tea for stress relief.", articleType: "Beverage", reviews: [] },
-    { id: 4, name: "Herbal Oil", price: 25, image: "https://via.placeholder.com/250x150?text=Product+4", rating: 5, description: "An herbal oil for relaxation and joint pain relief.", articleType: "Oil", reviews: [] },
-    { id: 5, name: "Vitamin D3", price: 12, image: "https://via.placeholder.com/250x150?text=Product+5", rating: 4, description: "Boost your immunity with Vitamin D3.", articleType: "Vitamin", reviews: [] },
+    { id: 1, name: "Health Supplement A", price: 10, image: "/media/products-media/product01.jpeg" , rating: 4, description: "A great health supplement to boost your energy and immune system.", articleType: "Supplement", reviews: [] },
+    { id: 2, name: "Health Supplement B", price: 20, image: "/media/products-media/orange-immunity-builder-booster-.webp", rating: 5, description: "An effective vitamin C supplement for better skin and immunity.", articleType: "Vitamin", reviews: [] },
+    { id: 3, name: "Organic Tea", price: 15, image: "/media/products-media/tea-glass-cup.jpg", rating: 3, description: "A soothing organic tea for stress relief.", articleType: "Beverage", reviews: [] },
+    { id: 4, name: "Herbal Oil", price: 25, image: "/media/products-media/herbal-green-tea.avif", rating: 5, description: "An herbal oil for relaxation and joint pain relief.", articleType: "Oil", reviews: [] },
+    { id: 5, name: "Vitamin D3", price: 12, image: "/media/products-media/sick-woman-taking-medicine.avif", rating: 4, description: "Boost your immunity with Vitamin D3.", articleType: "Vitamin", reviews: [] },
   
     // Add more products as needed...
 ];
